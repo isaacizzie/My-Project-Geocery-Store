@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <link rel="shortcut icon" href="image/logo black color.png" class="w-full" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<script src="shop.js" defer></script>
+<style>
+    #popup {
+    display: none; /* Hidden by default */
+}
+
+
+/* Style for the active tab */
+.tabs_wrap ul li.active {
+    background-color: #15803d; /* Blue background for active tab */
+    color: #ffffff; /* Yellow text for active tab */
+}
+
+/* Keep the hover effect for all tabs */
+.tabs_wrap ul li:hover {
+    background-color: #15803d;
+    color: #ffffff;
+}
+
+
+
+</style>
+<body class="bg-gray-100 lg:px-11">
+    <!-- PhoneStatusBar -->
+    <div class="lg:hidden md:hidden text- w-full text-xs font-bold text-black flex justify-between items-center px-4 py-2 fixed top-0 left-0">
+        <div class="flex space-x-2 items-center">
+            <span>9:41</span>
+        </div>
+    <div class="bg-white text-black transition-colors duration-300">
+ 
+    </div>
+        <div class="flex space-x-2 items-center">
+            <!-- Battery Icon -->
+            <div class="flex items-center space-x-1 font-bold">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-5">
+                    <path
+                        d="M4 7.75A.75.75 0 0 1 4.75 7h5.5a.75.75 0 0 1 .75.75v.5a.75.75 0 0 1-.75.75h-5.5A.75.75 0 0 1 4 8.25v-.5Z" />
+                    <path fill-rule="evenodd"
+                        d="M3.25 4A2.25 2.25 0 0 0 1 6.25v3.5A2.25 2.25 0 0 0 3.25 12h8.5A2.25 2.25 0 0 0 14 9.75v-.085a1.5 1.5 0 0 0 1-1.415v-.5a1.5 1.5 0 0 0-1-1.415V6.25A2.25 2.25 0 0 0 11.75 4h-8.5ZM2.5 6.25a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-.75.75h-8.5a.75.75 0 0 1-.75-.75v-3.5Z"
+                        clip-rule="evenodd" />
+                </svg>
+
+            </div>
+            <!-- Signal Icon -->
+            <div class="flex items-center space-x-1 font-bold">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-5">
+                    <path fill-rule="evenodd"
+                        d="M14.188 7.063a8.75 8.75 0 0 0-12.374 0 .75.75 0 0 1-1.061-1.06c4.003-4.004 10.493-4.004 14.496 0a.75.75 0 1 1-1.061 1.06Zm-2.121 2.121a5.75 5.75 0 0 0-8.132 0 .75.75 0 0 1-1.06-1.06 7.25 7.25 0 0 1 10.252 0 .75.75 0 0 1-1.06 1.06Zm-2.122 2.122a2.75 2.75 0 0 0-3.889 0 .75.75 0 1 1-1.06-1.061 4.25 4.25 0 0 1 6.01 0 .75.75 0 0 1-1.06 1.06Zm-2.828 1.06a1.25 1.25 0 0 1 1.768 0 .75.75 0 0 1 0 1.06l-.355.355a.75.75 0 0 1-1.06 0l-.354-.354a.75.75 0 0 1 0-1.06Z"
+                        clip-rule="evenodd" />
+                </svg>
+
+            </div>
+            <!-- Notification Bell Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-4">
+                <path
+                    d="M15.5 2A1.5 1.5 0 0 0 14 3.5v13a1.5 1.5 0 0 0 1.5 1.5h1a1.5 1.5 0 0 0 1.5-1.5v-13A1.5 1.5 0 0 0 16.5 2h-1ZM9.5 6A1.5 1.5 0 0 0 8 7.5v9A1.5 1.5 0 0 0 9.5 18h1a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 10.5 6h-1ZM3.5 10A1.5 1.5 0 0 0 2 11.5v5A1.5 1.5 0 0 0 3.5 18h1A1.5 1.5 0 0 0 6 16.5v-5A1.5 1.5 0 0 0 4.5 10h-1Z" />
+            </svg>
+
+        </div>
+    </div>
+<!-- menu Notification -->
+<header class="hidden md:hidden lg:block lg:shadow-md">
+    <nav class="bg-black border-b-4 border-b-lime-500 dark:bg-gray-900">
+        <div class="max-w-screen-xl flex items-center justify-between mx-auto">
+            <!-- Logo -->
+            <div class="flex items-center h-32">
+                <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+                    <img src="/image/carrot logo.png" class="w-20 p-0" alt="Flowbite Logo" />
+                    <span class="text-2xl font-semibold whitespace-nowrap text-white">Grocery Store </span>
+                </a>
+            </div>
+
+            <!-- List Items -->
+            <div class="flex-grow flex justify-center">
+                <ul class="flex p-0 font-medium text-white space-x-10">
+                    <li><a href="home.html" class="flex">Home</a></li>
+                    <li><a href="shop.html" class="flex">Shop</a></li>
+                    <li><a href="cart.html" class="flex">Cart</a></li>
+                    <li><a href="profile.html" class="flex">Profile</a></li>
+                </ul>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="relative">
+                <form action="shop.html" method="GET" class="w-full max-w-xs" id="searchForm">
+                    <div class="relative">
+                        <div class="absolute inset-y-0 flex items-center ps-3 pointer-events-none">
+                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                            </svg>
+                        </div>
+                        <input type="search" name="q" class="block w-full p-3 ps-10 text-sm rounded-full text-gray-900 border border-gray-300 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Search Shop." required />
+                        <button type="submit" class="absolute inset-y-0 end-0 flex items-center px-3">
+                            <span class="sr-only">Search</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+    <!-- Navigation Bar -->
+    <header class=" md:hidden  lg:hidden">
+        <div
+            class="fixed inset-x-0 bottom-0 py-1.5 md:top-0 md:bottom-auto md:bg-white bg-white shadow md:shadow-none md:py-4 z-50">
+            <div class="flex justify-around items-center">
+                <a href="home.html" class="flex flex-col items-center text-gray-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-5">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z" />
+                    </svg>
+
+                    <span class="text-xs font-semibold">Shop</span>
+                </a>
+              <a href="shop.html" class="  flex flex-col items-center text-green-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-5">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                    </svg>
+
+                    <span class="text-xs font-semibold">Explore</span>
+                </a>
+                <a href="cart.html" onclick="goToCartPage()" class="flex flex-col items-center text-gray-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-5">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                    </svg>
+
+                    <span class="text-xs font-semibold">Cart</span>
+                </a>
+
+                <a href="profile.html" class="flex flex-col items-center text-gray-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-5">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                    </svg>
+
+                    <span class="text-xs font-semibold">Profile</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <!-- Main -->
+    <div class="lg:pt-2 pt-2 md:pt-24 px-4">
+
+        <!-- search shop    -->
+        <div class="mt-16">
+         
+            <div>
+                <!-- Search Form -->
+                <form class="lg:hidden w-full mx-auto" id="searchForm">
+                    <div class="relative">
+                        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                            </svg>
+                        </div>
+                        <input type="search" name="q" id="default-search" class="block w-full p-3 mb-5 ps-10 text-sm rounded-full text-gray-900 border border-gray-300 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Search Shop." required />
+                        <button type="submit" class="absolute inset-y-0 end-0 flex items-center px-3">
+                            <span class="sr-only">Search</span>
+                        </button>
+                    </div>
+                </form>
+            
+                <!-- Feedback for no results -->
+                <div id="noResults" class="hidden text-red-500 text-center mb-6">No items match your search</div>
+            
+
+            </div>
+            
+            
+        </div>
+
+        <!-- Shop -->
+
+        <div class="mb-6">
+
+    <div class="mb-4 mt-10 lg:mt-20">
+    <div class="flex justify-between items-center mb-5">
+        <h1 class="text-xl lg:text-4xl font-bold">Products</h1>
+    </div>
+
+    <div class="max-w-md mx-auto text-center mb-4">
+        <div class="tabs_wrap">
+            <ul class="flex flex-wrap gap-2  py-3"> 
+                <li data-tabs="all" class="active hover:bg-green-500 hover:text-yellow-400 inline-block lg:text-sm text-xs py-2 px-4 capitalize text-center cursor-pointer rounded-md ease-linear duration-200 bg-green-500 text-black">All</li>
+                <li data-tabs="fruit" class="hover:bg-green-500 hover:text-yellow-400 inline-block lg:text-sm text-xs py-2 px-4 text-center cursor-pointer rounded-md ease-linear duration-200 bg-green-500">Fruit</li>
+                <li data-tabs="vegetable" class="hover:bg-green-500 hover:text-yellow-400 inline-block lg:text-sm text-xs py-2 px-4 text-center cursor-pointer rounded-md ease-linear duration-200 bg-green-500">Vegetables</li>
+                <li data-tabs="bread" class="hover:bg-green-500 hover:text-yellow-400 inline-block lg:text-sm text-xs py-2 px-4 text-center cursor-pointer rounded-md ease-linear duration-200 bg-green-500">Bakery & Snacks</li>
+                <li data-tabs="meat" class="hover:bg-green-500 hover:text-yellow-400 inline-block lg:text-sm text-xs py-2 px-4 capitalize text-center cursor-pointer rounded-md ease-linear duration-200 bg-green-500">Meat</li>
+                <li data-tabs="dairy" class="hover:bg-green-500 hover:text-yellow-400 inline-block lg:text-sm text-xs py-2 px-4 capitalize text-center cursor-pointer rounded-md ease-linear duration-200 bg-green-500">Dairy</li>
+                <li data-tabs="pasta" class="hover:bg-green-500 hover:text-yellow-400 inline-block lg:text-sm text-xs py-2 px-4 capitalize text-center cursor-pointer rounded-md ease-linear duration-200 bg-green-500">Pasta & Cereals</li>
+                <li data-tabs="beverage" class="hover:bg-green-500 hover:text-yellow-400 inline-block lg:text-sm text-xs py-2 px-4 capitalize text-center cursor-pointer rounded-md ease-linear duration-200 bg-green-500">Beverage</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- product lists -->
+    <div id="productsList" class="search-results grid grid-cols-2 lg:grid-cols-4 md:grid-cols-4 gap-6 mb-32">
+        <!-- Product Cards 1 -->
+        <div class="item_wrap fruit bg-white rounded-lg p-4 shadow h-auto w-full aspect-square sm:h-80 sm:aspect-auto flex flex-col justify-between">
+            <img src="image/Remove-bg.ai_1725558481608.png" alt="Apples" class="h-24 sm:h-48 mx-auto object-contain"/>
+            <h3 class="mt-2 text-gray-800 font-bold text-lg ">Apples</h3>
+            <p class="text-gray-500 text-sm font-bold ">7pcs, Price</p>
+            <div class="flex justify-between items-center mt-2">
+                <span class="text-lg font-semibold">$6.00</span>
+                <button onclick="addToCart('Apple', 6, 'image/Remove-bg.ai_1725558481608.png')" class="bg-green-500 text-white w-10 h-10 rounded-full flex justify-center text-2xl items-center">+</button>
+            </div>
+        </div>
+        <!-- Product Cards 2 vegetable -->
+        <div class="item_wrap Vegetable bg-white rounded-lg p-4 shadow h-auto w-full aspect-square sm:h-80 sm:aspect-auto flex flex-col justify-between ">
+            <img src="image/Broccoli.png" alt="Broccoli" class="h-24 sm:h-48 mx-auto object-contain"/>
+            <h3 class="mt-2 text-gray-800 font-bold text-lg">Broccoli</h3>
+            <p class="text-gray-500 text-sm font-bold">1pcs, Price</p>
+            <div class="flex justify-between items-center mt-2">
+                <span class="text-lg font-semibold">$12.00</span>
+                <button onclick="addToCart('Broccoli', 12, 'image/Broccoli.png')" class="bg-green-500 text-white w-10 h-10 rounded-full text-2xl items-center">+</button>
+            </div>
+        </div>
+        <!-- Product Cards 3 fruit -->
+        <div class="item_wrap fruit bg-white rounded-lg p-4 shadow h-auto w-full aspect-square sm:h-80 sm:aspect-auto flex flex-col justify-between">
+            <img src="image/avocado.jpg" alt="Avocado" class="h-24 sm:h-48 mx-auto object-contain"/>
+            <h3 class="mt-2 text-gray-800 font-bold text-lg">Avocado</h3>
+            <p class="text-gray-500 text-sm">3pcs, Price</p>
+            <div class="flex justify-between items-center mt-2">
+                <span class="text-lg font-semibold">$9.00</span>
+                <button onclick="addToCart('Avocado', 9, 'image/avocado.jpg')" class="bg-green-500 text-white w-10 h-10 rounded-full text-2xl items-center">+</button>
+            </div>
+        </div>
+
+
+        <!-- Product Cards 4 fruit -->
+        <div class="item_wrap fruit bg-white rounded-lg p-4 shadow h-auto w-full aspect-square sm:h-80 sm:aspect-auto flex flex-col justify-between">
+            <img src="image/banana.png" alt="Bananas" class="h-24 sm:h-48 mx-auto object-contain"/>
+            <h3 class="mt-2 text-gray-800 font-bold text-lg ">Bananas</h3>
+            <p class="text-gray-500 text-sm font-bold ">7pcs, Price</p>
+            <div class="flex justify-between items-center mt-2">
+                <span class="text-lg font-semibold">$3.00</span>
+                <button onclick="addToCart('Bananas', 6, 'image/banana.png')" class="bg-green-500 text-white w-10 h-10 rounded-full flex justify-center text-2xl items-center">+</button>
+            </div>
+        </div>
+        <!-- Product Cards 5 fruit -->
+        <div class="item_wrap fruit  bg-white rounded-lg p-4 shadow h-auto w-full aspect-square sm:h-80 sm:aspect-auto flex flex-col justify-between">
+            <img src="image/berrys.jpg" alt="Berries" class="h-24 sm:h-48 mx-auto object-contain"/>
+            <h3 class="mt-2 text-gray-800 font-bold text-lg">Berries</h3>
+            <p class="text-gray-500 text-sm font-bold">1 Buddle, Price</p>
+            <div class="flex justify-between items-center mt-2">
+                <span class="text-lg font-semibold">$5.00</span>
+                <button onclick="addToCart('Berries', 5, 'image/berrys.jpg')" class="bg-green-500 text-white w-10 h-10 rounded-full text-2xl items-center">+</button>
+            </div>
+        </div>
+        <!-- Product Cards 6 fruit -->
+        <div class="item_wrap fruit bg-white rounded-lg p-4 shadow h-auto w-full aspect-square sm:h-80 sm:aspect-auto flex flex-col justify-between">
+            <img src="image/Remove-bg.ai_1725558891979.png" alt="Grapes" class="h-24 sm:h-48 mx-auto object-contain"/>
+            <h3 class="mt-2 text-gray-800 font-bold text-lg">Grapes</h3>
+            <p class="text-gray-500 text-sm">3 Buddles, Price</p>
+            <div class="flex justify-between items-center mt-2">
+                <span class="text-lg font-semibold">$5.00</span>
+                <button onclick="addToCart('Grapes', 5, 'image/Remove-bg.ai_1725558891979.png')" class="bg-green-500 text-white w-10 h-10 rounded-full text-2xl items-center">+</button>
+            </div>
+        </div>
+
+        <!-- Product Cards 7 fruit -->
+        <div class="item_wrap fruit bg-white rounded-lg p-4 shadow h-auto w-full aspect-square sm:h-80 sm:aspect-auto flex flex-col justify-between">
+            <img src="image/orange.png" alt="Apples" class="h-24 sm:h-48 mx-auto object-contain"/>
+            <h3 class="mt-2 text-gray-800 font-bold text-lg ">Oranges</h3>
+            <p class="text-gray-500 text-sm font-bold ">5pcs, Price</p>
+            <div class="flex justify-between items-center mt-2">
+                <span class="text-lg font-semibold">$3.00</span>
+                <button onclick="addToCart('Oranges', 3, 'image/orange.png')" class="bg-green-500 text-white w-10 h-10 rounded-full flex justify-center text-2xl items-center">+</button>
+            </div>
+        </div>
+        <!-- Product Cards 8 fruit -->
+        <div class="item_wrap fruit bg-white rounded-lg p-4 shadow h-auto w-full aspect-square sm:h-80 sm:aspect-auto flex flex-col justify-between">
+            <img src="image/Peaches.png" alt="Peaches" class="h-24 sm:h-48 mx-auto object-contain"/>
+            <h3 class="mt-2 text-gray-800 font-bold text-lg">Peaches</h3>
+            <p class="text-gray-500 text-sm font-bold">1pcs, Price</p>
+            <div class="flex justify-between items-center mt-2">
+                <span class="text-lg font-semibold">$2.00</span>
+                <button onclick="addToCart('Peaches', 2, 'image/Peaches.png')" class="bg-green-500 text-white w-10 h-10 rounded-full text-2xl items-center">+</button>
+            </div>
+        </div>
+        <!-- Product Cards 8 fruit -->
+        <div class="item_wrap fruit bg-white rounded-lg p-4 shadow h-auto w-full aspect-square sm:h-80 sm:aspect-auto flex flex-col justify-between">
+            <img src="image/Pears.png" alt="Avocado" class="h-24 sm:h-48 mx-auto object-contain"/>
+            <h3 class="mt-2 text-gray-800 font-bold text-lg">Pears</h3>
+            <p class="text-gray-500 text-sm">1pcs, Price</p>
+            <div class="flex justify-between items-center mt-2">
+                <span class="text-lg font-semibold">$3.00</span>
+                <button onclick="addToCart('Pears', 3, 'image/Pears.png')" class="bg-green-500 text-white w-10 h-10 rounded-full text-2xl items-center">+</button>
+            </div>
+        </div>
+
+         <!-- Product Cards 9 Vegetable -->
+        <div class="item_wrap vegetable bg-white rounded-lg p-4 shadow h-auto w-full aspect-square sm:h-80 sm:aspect-auto flex flex-col justify-between">
+            <img src="image/Cabbage.png" alt="Apples" class="h-24 sm:h-48 mx-auto object-contain"/>
+            <h3 class="mt-2 text-gray-800 font-bold text-lg ">Cabbage</h3>
+            <p class="text-gray-500 text-sm font-bold ">3pcs, Price</p>
+            <div class="flex justify-between items-center mt-2">
+                <span class="text-lg font-semibold">$4.00</span>
+                <button onclick="addToCart('Cabbage', 4, 'image/Cabbage.png')" class="bg-green-500 text-white w-10 h-10 rounded-full flex justify-center text-2xl items-center">+</button>
+            </div>
+        </div>
+        <!-- Product Cards 10 Vegetables -->
+        <div class="item_wrap vegetable  bg-white rounded-lg p-4 shadow h-auto w-full aspect-square sm:h-80 sm:aspect-auto flex flex-col justify-between">
+            <img src="image/corn.jpeg" alt="Berries" class="h-24 sm:h-48 mx-auto object-contain"/>
+            <h3 class="mt-2 text-gray-800 font-bold text-lg">Corn</h3>
+            <p class="text-gray-500 text-sm font-bold">2pcs, Price</p>
+            <div class="flex justify-between items-center mt-2">
+                <span class="text-lg font-semibold">$4.00</span>
+                <button onclick="addToCart('Corn', 4, 'image/berrys.jpg')" class="bg-green-500 text-white w-10 h-10 rounded-full text-2xl items-center">+</button>
+            </div>
+        </div>
+        <!-- Product Cards 11 Vegetables -->
+        <div class="item_wrap vegetable bg-white rounded-lg p-4 shadow h-auto w-full aspect-square sm:h-80 sm:aspect-auto flex flex-col justify-between">
+            <img src="image/Sweet potato.png" alt="Avocado" class="h-24 sm:h-48 mx-auto object-contain"/>
+            <h3 class="mt-2 text-gray-800 font-bold text-lg">Sweet potato</h3>
+            <p class="text-gray-500 text-sm">3pcs, Price</p>
+            <div class="flex justify-between items-center mt-2">
+                <span class="text-lg font-semibold">$5.00</span>
+                <button onclick="addToCart('Sweet potato', 5, 'image/Sweet potato.png')" class="bg-green-500 text-white w-10 h-10 rounded-full text-2xl items-center">+</button>
+            </div>
+        </div>
+
+        <!-- Product Cards 12 Vegetables -->
+        <div class="item_wrap vegetable bg-white rounded-lg p-4 shadow h-auto w-full aspect-square sm:h-80 sm:aspect-auto flex flex-col justify-between">
+            <img src="image/Eggplant.jpg" alt="Apples" class="h-24 sm:h-48 mx-auto object-contain"/>
+            <h3 class="mt-2 text-gray-800 font-bold text-lg ">Eggplant</h3>
+            <p class="text-gray-500 text-sm font-bold ">2pcs, Price</p>
+            <div class="flex justify-between items-center mt-2">
+                <span class="text-lg font-semibold">$4.00</span>
+                <button onclick="addToCart('Eggplant', 4, 'image/Eggplant.jpg')" class="bg-green-500 text-white w-10 h-10 rounded-full flex justify-center text-2xl items-center">+</button>
+            </div>
+        </div>
+        <!-- Product Cards 13 Vegetable -->
+        <div class="item_wrap vegetable  bg-white rounded-lg p-4 shadow h-auto w-full aspect-square sm:h-80 sm:aspect-auto flex flex-col justify-between">
+            <img src="image/tomatoes.png" alt="Berries" class="h-24 sm:h-48 mx-auto object-contain"/>
+            <h3 class="mt-2 text-gray-800 font-bold text-lg">Tomatoes</h3>
+            <p class="text-gray-500 text-sm font-bold">4pcs, Price</p>
+            <div class="flex justify-between items-center mt-2">
+                <span class="text-lg font-semibold">$7.00</span>
+                <button onclick="addToCart('Tomatoes', 7, 'image/tomatoes.png')" class="bg-green-500 text-white w-10 h-10 rounded-full text-2xl items-center">+</button>
+            </div>
+        </div>
+        <!-- Product Cards 14 Bread -->
+        <div class="item_wrap bread bg-white rounded-lg p-4 shadow h-auto w-full aspect-square sm:h-80 sm:aspect-auto flex flex-col justify-between">
+            <img src="image/cakes.png" alt="Cake" class="h-24 sm:h-48 mx-auto object-contain"/>
+            <h3 class="mt-2 text-gray-800 font-bold text-lg">Cake</h3>
+            <p class="text-gray-500 text-sm">1pcs, Price</p>
+            <div class="flex justify-between items-center mt-2">
+                <span class="text-lg font-semibold">$15.00</span>
+                <button onclick="addToCart('Cake', 15, 'image/cakes.png')" class="bg-green-500 text-white w-10 h-10 rounded-full text-2xl items-center">+</button>
+            </div>
+        </div>
+                <!-- Product Cards 15 Bread -->
+        <div class="item_wrap bread bg-white rounded-lg p-4 shadow h-auto w-full aspect-square sm:h-80 sm:aspect-auto flex flex-col justify-between">
+            <img src="image/cookies.jpg" alt="Cookies" class="h-24 sm:h-48 mx-auto object-contain"/>
+            <h3 class="mt-2 text-gray-800 font-bold text-lg ">Cookies</h3>
+            <p class="text-gray-500 text-sm font-bold ">4pcs, Price</p>
+            <div class="flex justify-between items-center mt-2">
+                <span class="text-lg font-semibold">$1.00</span>
+                <button onclick="addToCart('Cookies', 1, 'image/cookies.jpg')" class="bg-green-500 text-white w-10 h-10 rounded-full flex justify-center text-2xl items-center">+</button>
+            </div>
+        </div>
+        <!-- Product Cards 16 Bread -->
+        <div class="item_wrap bread  bg-white rounded-lg p-4 shadow h-auto w-full aspect-square sm:h-80 sm:aspect-auto flex flex-col justify-between">
+            <img src="image/Donuts.jpg" alt="Donuts" class="h-24 sm:h-48 mx-auto object-contain"/>
+            <h3 class="mt-2 text-gray-800 font-bold text-lg">Donuts</h3>
+            <p class="text-gray-500 text-sm font-bold">1pcs, Price</p>
+            <div class="flex justify-between items-center mt-2">
+                <span class="text-lg font-semibold">$1.00</span>
+                <button onclick="addToCart('Donuts', 1, 'image/Donuts.jpg')" class="bg-green-500 text-white w-10 h-10 rounded-full text-2xl items-center">+</button>
+            </div>
+        </div>
+        <!-- Product Cards 17 Bread -->
+        <div class="item_wrap bread bg-white rounded-lg p-4 shadow h-auto w-full aspect-square sm:h-80 sm:aspect-auto flex flex-col justify-between">
+            <img src="image/Hamburger buns.png" alt="Hamburger buns" class="h-24 sm:h-48 mx-auto object-contain"/>
+            <h3 class="mt-2 text-gray-800 font-bold text-lg">Hamburger buns</h3>
+            <p class="text-gray-500 text-sm">1pcs, Price</p>
+            <div class="flex justify-between items-center mt-2">
+                <span class="text-lg font-semibold">$3.00</span>
+                <button onclick="addToCart('Hamburger buns', 3, 'image/avocado.jpg')" class="bg-green-500 text-white w-10 h-10 rounded-full text-2xl items-center">+</button>
+            </div>
+        </div>
+
+        <!-- Product Cards 18 Meat  -->
+        <div class="item_wrap meat  bg-white rounded-lg p-4 shadow h-auto w-full aspect-square sm:h-80 sm:aspect-auto flex flex-col justify-between">
+            <img src="image/Hot dogs.png" alt="Hot dogs" class="h-24 sm:h-48 mx-auto object-contain"/>
+            <h3 class="mt-2 text-gray-800 font-bold text-lg ">Hot dog</h3>
+            <p class="text-gray-500 text-sm font-bold ">4pcs, Price</p>
+            <div class="flex justify-between items-center mt-2">
+                <span class="text-lg font-semibold">$6.00</span>
+                <button onclick="addToCart('Hot dog', 6, 'image/Hot dogs.png')" class="bg-green-500 text-white w-10 h-10 rounded-full flex justify-center text-2xl items-center">+</button>
+            </div>
+        </div>
+        <!-- Product Cards 19 Meat -->
+        <div class="item_wrap meat  bg-white rounded-lg p-4 shadow h-auto w-full aspect-square sm:h-80 sm:aspect-auto flex flex-col justify-between">
+            <img src="image/Chicken.png" alt="Chicken" class="h-24 sm:h-48 mx-auto object-contain"/>
+            <h3 class="mt-2 text-gray-800 font-bold text-lg">Chicken</h3>
+            <p class="text-gray-500 text-sm font-bold">1pcs, Price</p>
+            <div class="flex justify-between items-center mt-2">
+                <span class="text-lg font-semibold">$5.00</span>
+                <button onclick="addToCart('Chicken', 5, 'image/Chicken.png')" class="bg-green-500 text-white w-10 h-10 rounded-full text-2xl items-center">+</button>
+            </div>
+        </div>
+        <!-- Product Cards 20 Dairy -->
+        <div class="item_wrap dairy bg-white rounded-lg p-4 shadow h-auto w-full aspect-square sm:h-80 sm:aspect-auto flex flex-col justify-between">
+            <img src="image/butter.png" alt="butter" class="h-24 sm:h-48 mx-auto object-contain"/>
+            <h3 class="mt-2 text-gray-800 font-bold text-lg">Butter</h3>
+            <p class="text-gray-500 text-sm">1pcs, Price</p>
+            <div class="flex justify-between items-center mt-2">
+                <span class="text-lg font-semibold">$3.00</span>
+                <button onclick="addToCart('butter', 3, 'image/butter.png')" class="bg-green-500 text-white w-10 h-10 rounded-full text-2xl items-center">+</button>
+            </div>
+        </div>
+
+                <!-- Product Cards 21 Dairy -->
+        <div class="item_wrap dairy bg-white rounded-lg p-4 shadow h-auto w-full aspect-square sm:h-80 sm:aspect-auto flex flex-col justify-between">
+            <img src="image/yougurt.png" alt="yougurt" class="h-24 sm:h-48 mx-auto object-contain"/>
+            <h3 class="mt-2 text-gray-800 font-bold text-lg ">Yougurt</h3>
+            <p class="text-gray-500 text-sm font-bold ">1pcs, Price</p>
+            <div class="flex justify-between items-center mt-2">
+                <span class="text-lg font-semibold">$3.00</span>
+                <button onclick="addToCart('yougurt', 3, 'image/yougurt.png')" class="bg-green-500 text-white w-10 h-10 rounded-full flex justify-center text-2xl items-center">+</button>
+            </div>
+        </div>
+        <!-- Product Cards 22 dairy-->
+        <div class="item_wrap dairy  bg-white rounded-lg p-4 shadow h-auto w-full aspect-square sm:h-80 sm:aspect-auto flex flex-col justify-between">
+            <img src="image/egg.png" alt="egg" class="h-24 sm:h-48 mx-auto object-contain"/>
+            <h3 class="mt-2 text-gray-800 font-bold text-lg">Eggs</h3>
+            <p class="text-gray-500 text-sm font-bold">4pcs, Price</p>
+            <div class="flex justify-between items-center mt-2">
+                <span class="text-lg font-semibold">$1.00</span>
+                <button onclick="addToCart('Eggs', 1, 'image/berrys.jpg')" class="bg-green-500 text-white w-10 h-10 rounded-full text-2xl items-center">+</button>
+            </div>
+        </div>
+        <!-- Product Cards 23  pasta -->
+        <div class="item_wrap pasta bg-white rounded-lg p-4 shadow h-auto w-full aspect-square sm:h-80 sm:aspect-auto flex flex-col justify-between">
+            <img src="image/spaghetti_bianco.jpg" alt="Spaghetti" class="h-24 sm:h-48 mx-auto object-contain"/>
+            <h3 class="mt-2 text-gray-800 font-bold text-lg">Spaghetti</h3>
+            <p class="text-gray-500 text-sm">1pck, Price</p>
+            <div class="flex justify-between items-center mt-2">
+                <span class="text-lg font-semibold">$2.00</span>
+                <button onclick="addToCart('Spaghetti', 2, 'image/spaghetti_bianco.jpg')" class="bg-green-500 text-white w-10 h-10 rounded-full text-2xl items-center">+</button>
+            </div>
+        </div>
+
+        <!-- Product Cards 24 pasta -->
+        <div class="item_wrap pasta bg-white rounded-lg p-4 shadow h-auto w-full aspect-square sm:h-80 sm:aspect-auto flex flex-col justify-between">
+            <img src="image/oat.jpg" alt="Oat" class="h-24 sm:h-48 mx-auto object-contain"/>
+            <h3 class="mt-2 text-gray-800 font-bold text-lg ">Oat</h3>
+            <p class="text-gray-500 text-sm font-bold ">1pck, Price</p>
+            <div class="flex justify-between items-center mt-2">
+                <span class="text-lg font-semibold">$7.00</span>
+                <button onclick="addToCart('Oat', 7, 'image/oat.jpg')" class="bg-green-500 text-white w-10 h-10 rounded-full flex justify-center text-2xl items-center">+</button>
+            </div>
+        </div>
+        <!-- Product Cards 25 pasta -->
+        <div class="item_wrap pasta  bg-white rounded-lg p-4 shadow h-auto w-full aspect-square sm:h-80 sm:aspect-auto flex flex-col justify-between">
+            <img src="image/corn flakes.jpg" alt="corn flakes" class="h-24 sm:h-48 mx-auto object-contain"/>
+            <h3 class="mt-2 text-gray-800 font-bold text-lg">Corn Flakes</h3>
+            <p class="text-gray-500 text-sm font-bold">4pcs, Price</p>
+            <div class="flex justify-between items-center mt-2">
+                <span class="text-lg font-semibold">$8.00</span>
+                <button onclick="addToCart('Corn Flake', 8, 'image/corn flakes.jpg')" class="bg-green-500 text-white w-10 h-10 rounded-full text-2xl items-center">+</button>
+            </div>
+        </div>
+        <!-- Product Cards 26 pasta  -->
+        <div class="item_wrap pasta bg-white rounded-lg p-4 shadow h-auto w-full aspect-square sm:h-80 sm:aspect-auto flex flex-col justify-between">
+            <img src="image/rice.jpg" alt="Rice" class="h-24 sm:h-48 mx-auto object-contain"/>
+            <h3 class="mt-2 text-gray-800 font-bold text-lg">Rice</h3>
+            <p class="text-gray-500 text-sm">1, Price</p>
+            <div class="flex justify-between items-center mt-2">
+                <span class="text-lg font-semibold">$9.00</span>
+                <button onclick="addToCart('Avocado', 9, 'image/rice.jpg')" class="bg-green-500 text-white w-10 h-10 rounded-full text-2xl items-center">+</button>
+            </div>
+        </div>
+
+
+                <!-- Product Cards 27 beverage  -->
+        <div class="item_wrap beverage bg-white rounded-lg p-4 shadow h-auto w-full aspect-square sm:h-80 sm:aspect-auto flex flex-col justify-between">
+            <img src="image/Apple juice.jpg" alt="Rice" class="h-24 sm:h-48 mx-auto object-contain"/>
+            <h3 class="mt-2 text-gray-800 font-bold text-lg">Apple juice</h3>
+            <p class="text-gray-500 text-sm">1, Price</p>
+            <div class="flex justify-between items-center mt-2">
+                <span class="text-lg font-semibold">$2.00</span>
+                <button onclick="addToCart('Apple juice', 2, 'image/Apple juice.jpg')" class="bg-green-500 text-white w-10 h-10 rounded-full text-2xl items-center">+</button>
+            </div>
+        </div>
+
+
+
+                  <!-- Product Cards 28 beverage  -->
+        <div class="item_wrap beverage bg-white rounded-lg p-4 shadow h-auto w-full aspect-square sm:h-80 sm:aspect-auto flex flex-col justify-between">
+            <img src="image/orange.jpg" alt="orange" class="h-24 sm:h-48 mx-auto object-contain"/>
+            <h3 class="mt-2 text-gray-800 font-bold text-lg">Orange juice</h3>
+            <p class="text-gray-500 text-sm">1, Price</p>
+            <div class="flex justify-between items-center mt-2">
+                <span class="text-lg font-semibold">$2.00</span>
+                <button onclick="addToCart('orange juice', 2, 'image/orange.jpg')" class="bg-green-500 text-white w-10 h-10 rounded-full text-2xl items-center">+</button>
+            </div>
+        </div>
+
+                          <!-- Product Cards 29 beverage  -->
+        <div class="item_wrap beverage bg-white rounded-lg p-4 shadow h-auto w-full aspect-square sm:h-80 sm:aspect-auto flex flex-col justify-between">
+            <img src="image/coke.jpg" alt="coke" class="h-24 sm:h-48 mx-auto object-contain"/>
+            <h3 class="mt-2 text-gray-800 font-bold text-lg">Coke</h3>
+            <p class="text-gray-500 text-sm">1, Price</p>
+            <div class="flex justify-between items-center mt-2">
+                <span class="text-lg font-semibold">$6.00</span>
+                <button onclick="addToCart('coke', 6, 'image/coke.jpg')" class="bg-green-500 text-white w-10 h-10 rounded-full text-2xl items-center">+</button>
+            </div>
+        </div>
+    </div>
+
+        <!-- Popup Notification -->
+        <div id="popup" class="fixed top-4 right-4 bg-green-500 text-white py-2 px-4 rounded-lg shadow-lg">
+            <p id="popupMessage">Product added to cart!</p>
+        </div>
+                <!-- Cart Link -->
+            <div class="hidden  lg:block mt-4 overflow-auto">
+                <button onclick="goToCartPage()" class="bg-green-600 text-white py-2 px-4 rounded-lg">Go to Cart</button>
+            </div>
+
+        
+    </div>
+
+    <footer class="bg-black hidden  w-full shadow lg:mt-28 lg:block">
+        <div class="w-full max-w-screen-xl mx-auto mt-10 p-1 md:py-2 h-32">
+            <div class="sm:flex sm:items-center sm:justify-between">
+                <a href="home.html" class="flex items-center mb-0 sm:mb-0 space-x-3 rtl:space-x-reverse">
+                    <img src="image/carrot logo.png" class="h- w-16" alt=" Logo" />
+                    <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Grocery Store</span>
+                </a>
+                <ul class="flex flex-wrap items-center mb-3 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+                    <li>
+                        <a href="#" class="hover:underline me-4 md:me-6">About</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+                    </li>
+
+                </ul>
+
+                
+            </div>
+            <hr class="my-1 border-gray-200 sm:mx-auto"/>
+            <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="#" class="hover:underline">Grocery Store™</a>. All Rights Reserved.</span>
+
+        </div>
+    </footer> 
+</body>
+
+</html>

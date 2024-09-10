@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>welcome to Grocery Store</title>
+    <link rel="shortcut icon" href="image/logo black color.png" class="w-full" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com"></script>
+<style>
+    @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+
+</style>
+
+</head>
+<body class="bg-gray-100">
+
+    <!-- Full Screen Container -->
+    <div class="relative h-screen w-screen">
+        <!-- Background Image -->
+        <img src="/image/IMG-20240902-WA0011.jpg" alt="Store Image" class="absolute inset-0 w-full h-full object-cover object-center lg:object-top">
+
+        <!-- Overlay Content -->
+        <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-6 bg-black bg-opacity-50">
+            <!-- Logo (Optional) -->
+            <div class="text-white text-4xl font-bold mb-2">
+                <img src="image/carrot logo.png" alt="Logo" class="w-20 h-20 mx-auto">
+            </div>
+            
+            <!-- Text -->
+            <!-- Text -->
+            <!-- Text -->
+<!-- Text -->
+<h1 class="text-white text-3xl sm:text-5xl font-semibold mb-4" style="animation: typing 2s steps(30, end); overflow: hidden; white-space: nowrap; width: 0; animation-fill-mode: forwards;">Welcome to our store</h1>
+<p class="text-white text-base sm:text-lg mb-8" style="animation: typing 2s steps(30, end); overflow: hidden; white-space: nowrap; width: 0; animation-fill-mode: forwards;">Get your groceries in as fast as one hour</p>
+
+            <!-- Button -->
+            <a href="login.html" class="animate-pulse animate-infinite animate-ease-in bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-8 rounded-full shadow-md">
+                Shop Now
+            </a>
+        </div>
+    </div>
+
+    <script>
+function typeHeading() {
+  if (headingIndex < headingText.length) {
+    heading.textContent += headingText.charAt(headingIndex);
+    headingIndex++;
+    setTimeout(typeHeading, 50);
+  }
+}
+
+function typeParagraph() {
+  if (paragraphIndex < paragraphText.length) {
+      paragraph.textContent += paragraphText.charAt(paragraphIndex);
+      paragraphIndex++;
+      setTimeout(typeParagraph, 50);
+  }
+}
+      </script>
+</body>
+</html>
+          <!-- Text -->
+          <!-- <h1 class="text-white text-3xl sm:text-5xl font-semibold mb-4">Welcome to our store</h1>
+          <p class="text-white text-base sm:text-lg mb-8">Get your groceries in as fast as one hour</p>
+           -->
