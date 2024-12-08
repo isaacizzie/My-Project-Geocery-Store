@@ -1,0 +1,13 @@
+{
+    "rewrites": [
+      { "source": "/login.html", "destination": "/login.html" },
+      { "source": "/cart.html", "destination": "/cart.html" },
+      { "source": "/checkout.html", "destination": "/checkout.html" },
+      { "source": "/home.html", "destination": "/home.html" },
+      { "source": "/profile.html", "destination": "/profile.html" },
+      { "source": "/shop.html", "destination": "/shop.html" },
+      { "source": "/thankyou.html", "destination": "/thankyou.html" },
+      { "source": "/(.*)", "destination": "/index.html" }
+    ]
+  }
+  
